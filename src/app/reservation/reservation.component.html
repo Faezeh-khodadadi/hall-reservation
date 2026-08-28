@@ -1,0 +1,88 @@
+
+<div class="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-white text-slate-800 py-10 px-6" dir="rtl">
+  <div class="max-w-4xl mx-auto bg-white border border-slate-200/80 rounded-3xl p-8 shadow-2xl">
+    
+    <!-- هدر فرم -->
+    <div class="text-center mb-8 border-b border-slate-100 pb-6">
+      <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl shadow-inner">📅</div>
+      <h2 class="text-2xl font-black text-slate-900">فرم رزرو آنلاین سالن مراسم</h2>
+      <p class="text-slate-500 text-xs mt-2">لطفاً تمامی فیلدها را با دقت تکمیل نمایید</p>
+    </div>
+
+    <form (ngSubmit)="submitReservation()" class="space-y-6">
+      
+      <!-- مشخصات مسئول پیگیری -->
+      <div class="bg-slate-50/70 p-5 rounded-2xl border border-slate-200/60">
+        <h3 class="text-sm font-bold text-pink-600 mb-4 flex items-center gap-2">
+          <span>📌</span> مشخصات مسئول پیگیری مراسم
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" [(ngModel)]="formData.name" name="name" placeholder="نام" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+          <input type="text" [(ngModel)]="formData.lastName" name="lastName" placeholder="نام خانوادگی" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+          <input type="text" [(ngModel)]="formData.nationalId" name="nationalId" placeholder="کد ملی" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+          <input type="text" [(ngModel)]="formData.mobile" name="mobile" placeholder="موبایل" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+        </div>
+      </div>
+
+      <!-- نام و نوع مراسم -->
+      <div class="bg-slate-50/70 p-5 rounded-2xl border border-slate-200/60">
+        <h3 class="text-sm font-bold text-pink-600 mb-4 flex items-center gap-2">
+          <span>🏛️</span> نام و نوع مراسم
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" [(ngModel)]="formData.ceremonyName" name="ceremonyName" placeholder="نام مراسم" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+          <input type="text" [(ngModel)]="formData.ceremonyType" name="ceremonyType" placeholder="نوع مراسم" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+        </div>
+      </div>
+
+      <!-- تاریخ برگزاری و تعداد میهمانان -->
+      <div class="bg-slate-50/70 p-5 rounded-2xl border border-slate-200/60">
+        <h3 class="text-sm font-bold text-pink-600 mb-4 flex items-center gap-2">
+          <span>📅</span> تاریخ برگزاری و تعداد میهمانان
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <input type="date" [(ngModel)]="formData.date" name="date" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-700">
+          <input type="text" [(ngModel)]="formData.guestsCount" name="guestsCount" placeholder="تعداد میهمانان" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+
+
+<input type="text" [(ngModel)]="formData.endTime" name="endTime" placeholder="ساعت پایان" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+        </div>
+      </div>
+
+      <!-- انتخاب زمان اجاره سالن -->
+      <div class="bg-slate-50/70 p-5 rounded-2xl border border-slate-200/60">
+        <h3 class="text-sm font-bold text-pink-600 mb-4 flex items-center gap-2">
+          <span>⏰</span> انتخاب زمان اجاره سالن
+        </h3>
+        <div class="space-y-3">
+          <label class="flex items-center justify-between p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-pink-400 transition shadow-sm">
+            <div class="flex items-center gap-3">
+              <input type="radio" [(ngModel)]="formData.timeGroup" name="timeGroup" value="fullDay" class="accent-pink-500 w-4 h-4">
+              <span class="text-xs text-slate-700 font-medium">قیمت اجاره سالن برای یک روز از ۷ صبح تا ۲۳</span>
+            </div>
+            <span class="text-xs text-pink-600 font-bold bg-pink-50 px-2.5 py-1 rounded-lg">انتخاب</span>
+          </label>
+
+          <label class="flex items-center justify-between p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-pink-400 transition shadow-sm">
+            <div class="flex items-center gap-3">
+              <input type="radio" [(ngModel)]="formData.timeGroup" name="timeGroup" value="halfDay" class="accent-pink-500 w-4 h-4">
+              <span class="text-xs text-slate-700 font-medium">قیمت اجاره سالن برای نیم روز (از ۷ تا ۱۵ یا ۱۵ تا ۲۳)</span>
+            </div>
+            <span class="text-xs text-pink-600 font-bold bg-pink-50 px-2.5 py-1 rounded-lg">انتخاب</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- دکمه‌ها -->
+      <div class="flex gap-4 pt-2">
+        <button type="submit" class="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white py-3.5 rounded-xl font-extrabold text-sm transition shadow-lg shadow-pink-500/25">
+          تایید و ثبت نهایی رزرو
+        </button>
+        <a routerLink="/dashboard" class="px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-sm transition text-center flex items-center justify-center border border-slate-200">
+          بازگشت
+        </a>
+      </div>
+
+    </form>
+  </div>
+</div>
