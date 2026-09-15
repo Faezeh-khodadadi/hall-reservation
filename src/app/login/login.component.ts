@@ -1,40 +1,45 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+  ],
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
+
   email = '';
   password = '';
+
   showPassword = false;
+  isLoading = false;
   message = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private router: Router) {}
 
-  togglePassword() {
+  togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
 
-  onLogin() {
-    const credentials = { email: this.email, password: this.password };
+  onLogin(): void {
 
-    this.http.post('http://127.0.0.1:8000/api/login', credentials).subscribe({
-      next: (response: any) => {
-        this.message = 'ورود موفقیت‌آمیز بود! در حال انتقال...';
-        setTimeout(() => {
-          this.router.navigate(['/reservation']);
-        }, 1000);
-      },
-      error: (err) => {
-        this.message = 'ایمیل یا رمز عبور اشتباه است!';
-      }
-    });
+   this.isLoading=true;
+   setTimeout(()=>{
+    this.router.navigate(['/reservation']);
+   },800);
   }
 }

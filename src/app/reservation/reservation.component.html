@@ -1,88 +1,238 @@
+<div dir="rtl" class="min-h-screen bg-sky-50 px-4 py-8">
 
-<div class="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-white text-slate-800 py-10 px-6" dir="rtl">
-  <div class="max-w-4xl mx-auto bg-white border border-slate-200/80 rounded-3xl p-8 shadow-2xl">
-    
-    <!-- هدر فرم -->
-    <div class="text-center mb-8 border-b border-slate-100 pb-6">
-      <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl shadow-inner">📅</div>
-      <h2 class="text-2xl font-black text-slate-900">فرم رزرو آنلاین سالن مراسم</h2>
-      <p class="text-slate-500 text-xs mt-2">لطفاً تمامی فیلدها را با دقت تکمیل نمایید</p>
+  <div class="mx-auto max-w-5xl">
+
+    <div class="mb-8 text-center">
+      <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-2xl font-black text-sky-500 shadow">
+        ر
+      </div>
+
+      <h1 class="text-3xl font-black text-slate-800">
+        فرم رزرو آنلاین سالن
+      </h1>
+
+      <p class="mt-2 text-sm text-slate-500">
+        اطلاعات مراسم خود را با دقت وارد نمایید
+      </p>
     </div>
 
-    <form (ngSubmit)="submitReservation()" class="space-y-6">
-      
-      <!-- مشخصات مسئول پیگیری -->
-      <div class="bg-slate-50/70 p-5 rounded-2xl border border-slate-200/60">
-        <h3 class="text-sm font-bold text-pink-600 mb-4 flex items-center gap-2">
-          <span>📌</span> مشخصات مسئول پیگیری مراسم
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input type="text" [(ngModel)]="formData.name" name="name" placeholder="نام" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
-          <input type="text" [(ngModel)]="formData.lastName" name="lastName" placeholder="نام خانوادگی" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
-          <input type="text" [(ngModel)]="formData.nationalId" name="nationalId" placeholder="کد ملی" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
-          <input type="text" [(ngModel)]="formData.mobile" name="mobile" placeholder="موبایل" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
-        </div>
-      </div>
+    <div class="rounded-3xl border border-white bg-white/80 p-5 shadow-xl backdrop-blur-xl sm:p-8">
 
-      <!-- نام و نوع مراسم -->
-      <div class="bg-slate-50/70 p-5 rounded-2xl border border-slate-200/60">
-        <h3 class="text-sm font-bold text-pink-600 mb-4 flex items-center gap-2">
-          <span>🏛️</span> نام و نوع مراسم
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input type="text" [(ngModel)]="formData.ceremonyName" name="ceremonyName" placeholder="نام مراسم" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
-          <input type="text" [(ngModel)]="formData.ceremonyType" name="ceremonyType" placeholder="نوع مراسم" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
-        </div>
-      </div>
+      <form (ngSubmit)="submitReservation()" class="space-y-8">
 
-      <!-- تاریخ برگزاری و تعداد میهمانان -->
-      <div class="bg-slate-50/70 p-5 rounded-2xl border border-slate-200/60">
-        <h3 class="text-sm font-bold text-pink-600 mb-4 flex items-center gap-2">
-          <span>📅</span> تاریخ برگزاری و تعداد میهمانان
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <input type="date" [(ngModel)]="formData.date" name="date" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-700">
-          <input type="text" [(ngModel)]="formData.guestsCount" name="guestsCount" placeholder="تعداد میهمانان" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
+        <section>
+          <div class="mb-5">
+            <h2 class="font-extrabold text-slate-800">مشخصات مسئول پیگیری مراسم</h2>
+            <p class="mt-1 text-xs text-slate-400">اطلاعات شخص مسئول رزرو</p>
+          </div>
 
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 
-<input type="text" [(ngModel)]="formData.endTime" name="endTime" placeholder="ساعت پایان" class="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-100 transition text-slate-800 placeholder-slate-400">
-        </div>
-      </div>
-
-      <!-- انتخاب زمان اجاره سالن -->
-      <div class="bg-slate-50/70 p-5 rounded-2xl border border-slate-200/60">
-        <h3 class="text-sm font-bold text-pink-600 mb-4 flex items-center gap-2">
-          <span>⏰</span> انتخاب زمان اجاره سالن
-        </h3>
-        <div class="space-y-3">
-          <label class="flex items-center justify-between p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-pink-400 transition shadow-sm">
-            <div class="flex items-center gap-3">
-              <input type="radio" [(ngModel)]="formData.timeGroup" name="timeGroup" value="fullDay" class="accent-pink-500 w-4 h-4">
-              <span class="text-xs text-slate-700 font-medium">قیمت اجاره سالن برای یک روز از ۷ صبح تا ۲۳</span>
+            <div>
+              <label for="name" class="mb-2 block text-sm font-bold text-slate-600">نام</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                [(ngModel)]="formData.name"
+                placeholder="نام خود را وارد کنید"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-5 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
             </div>
-            <span class="text-xs text-pink-600 font-bold bg-pink-50 px-2.5 py-1 rounded-lg">انتخاب</span>
-          </label>
 
-          <label class="flex items-center justify-between p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-pink-400 transition shadow-sm">
-            <div class="flex items-center gap-3">
-              <input type="radio" [(ngModel)]="formData.timeGroup" name="timeGroup" value="halfDay" class="accent-pink-500 w-4 h-4">
-              <span class="text-xs text-slate-700 font-medium">قیمت اجاره سالن برای نیم روز (از ۷ تا ۱۵ یا ۱۵ تا ۲۳)</span>
+            <div>
+              <label for="lastName" class="mb-2 block text-sm font-bold text-slate-600">نام خانوادگی</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                [(ngModel)]="formData.lastName"
+                placeholder="نام خانوادگی را وارد کنید"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-5 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
             </div>
-            <span class="text-xs text-pink-600 font-bold bg-pink-50 px-2.5 py-1 rounded-lg">انتخاب</span>
-          </label>
+
+            <div>
+              <label for="nationalId" class="mb-2 block text-sm font-bold text-slate-600">کد ملی</label>
+              <input
+                id="nationalId"
+                name="nationalId"
+                type="text"
+                inputmode="numeric"
+                maxlength="10"
+                [(ngModel)]="formData.nationalId"
+                placeholder="کد ملی را وارد کنید"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-5 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
+            </div>
+
+            <div>
+              <label for="mobile" class="mb-2 block text-sm font-bold text-slate-600">شماره موبایل</label>
+              <input
+                id="mobile"
+                name="mobile"
+                type="tel"
+                inputmode="tel"
+                [(ngModel)]="formData.mobile"
+                placeholder="شماره موبایل را وارد کنید"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-5 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
+            </div>
+
+          </div>
+        </section>
+
+        <div class="h-px bg-sky-100"></div>
+
+        <section>
+          <div class="mb-5">
+            <h2 class="font-extrabold text-slate-800">اطلاعات مراسم</h2>
+            <p class="mt-1 text-xs text-slate-400">نام و نوع مراسم خود را وارد کنید</p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+            <div>
+              <label for="ceremonyName" class="mb-2 block text-sm font-bold text-slate-600">نام مراسم</label>
+              <input
+                id="ceremonyName"
+                name="ceremonyName"
+                type="text"
+                [(ngModel)]="formData.ceremonyName"
+                placeholder="نام مراسم را وارد کنید"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-5 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
+            </div>
+
+            <div>
+              <label for="ceremonyType" class="mb-2 block text-sm font-bold text-slate-600">نوع مراسم</label>
+              <input
+                id="ceremonyType"
+                name="ceremonyType"
+                type="text"
+                [(ngModel)]="formData.ceremonyType"
+                placeholder="نوع مراسم را وارد کنید"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-5 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
+            </div>
+
+          </div>
+        </section>
+
+        <div class="h-px bg-sky-100"></div>
+
+        <section>
+          <div class="mb-5">
+            <h2 class="font-extrabold text-slate-800">تاریخ و تعداد میهمانان</h2>
+            <p class="mt-1 text-xs text-slate-400">زمان برگزاری مراسم را مشخص کنید</p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+
+            <div>
+              <label for="date" class="mb-2 block text-sm font-bold text-slate-600">تاریخ برگزاری</label>
+              <input
+                id="date"
+                name="date"
+                type="date"
+                [(ngModel)]="formData.date"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-4 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
+            </div>
+
+            <div>
+              <label for="guestsCount" class="mb-2 block text-sm font-bold text-slate-600">تعداد میهمانان</label>
+              <input
+                id="guestsCount"
+                name="guestsCount"
+                type="number"
+                min="1"
+                [(ngModel)]="formData.guestsCount"
+                placeholder="تعداد میهمان"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-4 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
+            </div>
+
+            <div>
+              <label for="endTime" class="mb-2 block text-sm font-bold text-slate-600">ساعت پایان مراسم</label>
+              <input
+                id="endTime"
+                name="endTime"
+                type="text"
+                [(ngModel)]="formData.endTime"
+                placeholder="مثلاً ۲۳:۰۰"
+                class="h-14 w-full rounded-2xl border border-sky-100 bg-white px-5 text-sm text-slate-700 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100">
+            </div>
+
+          </div>
+        </section>
+
+        <div class="h-px bg-sky-100"></div>
+
+        <section>
+          <div class="mb-5">
+            <h2 class="font-extrabold text-slate-800">انتخاب زمان اجاره سالن</h2>
+            <p class="mt-1 text-xs text-slate-400">یکی از گزینه‌های زیر را انتخاب کنید</p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+
+            <label class="block cursor-pointer">
+              <input
+                type="radio"
+                name="timeGroup"
+                value="fullDay"
+                [(ngModel)]="formData.timeGroup"
+                class="sr-only">
+
+              <div class="rounded-2xl border-2 border-sky-100 bg-white p-5 transition hover:border-sky-300 hover:shadow-lg">
+                <h3 class="font-extrabold text-slate-800">یک روز</h3>
+                <span class="mt-2 inline-block rounded-full bg-sky-100 px-2 py-1 text-xs font-bold text-sky-600">
+                  ۷ تا ۲۳
+                </span>
+                <p class="mt-2 text-xs leading-6 text-slate-400">
+                  قیمت اجاره سالن برای یک روز
+                </p>
+              </div>
+            </label>
+
+            <label class="block cursor-pointer">
+              <input
+                type="radio"
+                name="timeGroup"
+                value="halfDay"
+                [(ngModel)]="formData.timeGroup"
+                class="sr-only">
+
+              <div class="rounded-2xl border-2 border-sky-100 bg-white p-5 transition hover:border-sky-300 hover:shadow-lg">
+                <h3 class="font-extrabold text-slate-800">نیم روز</h3>
+                <span class="mt-2 inline-block rounded-full bg-sky-100 px-2 py-1 text-xs font-bold text-sky-600">
+                  ۷ تا ۱۵ / ۱۵ تا ۲۳
+                </span>
+                <p class="mt-2 text-xs leading-6 text-slate-400">
+                  قیمت اجاره سالن برای نیم روز
+                </p>
+              </div>
+            </label>
+
+          </div>
+        </section>
+
+        <div class="flex flex-col gap-3 border-t border-sky-100 pt-6 sm:flex-row sm:justify-between">
+
+          <button
+            type="button"
+            (click)="backToDashboard()"
+            class="rounded-2xl bg-slate-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-600">
+            بازگشت به داشبورد
+          </button>
+
+          <button
+            type="submit"
+            class="rounded-2xl bg-sky-500 px-8 py-3 text-sm font-extrabold text-white shadow-lg shadow-sky-200 transition hover:bg-sky-600">
+            تایید و ثبت نهایی رزرو
+          </button>
+
         </div>
-      </div>
 
-      <!-- دکمه‌ها -->
-      <div class="flex gap-4 pt-2">
-        <button type="submit" class="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white py-3.5 rounded-xl font-extrabold text-sm transition shadow-lg shadow-pink-500/25">
-          تایید و ثبت نهایی رزرو
-        </button>
-        <a routerLink="/dashboard" class="px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-sm transition text-center flex items-center justify-center border border-slate-200">
-          بازگشت
-        </a>
-      </div>
+      </form>
+    </div>
 
-    </form>
+    <p class="mt-5 text-center text-xs text-slate-400">
+      اطلاعات شما با امنیت کامل ثبت و پردازش خواهد شد.
+    </p>
+
   </div>
 </div>

@@ -1,95 +1,411 @@
 
-<div class="min-h-screen flex bg-slate-900" dir="rtl">
-  
-  <!-- بخش راست: گرافیک و متن خوش‌آمدگویی سالن -->
-  <div class="hidden lg:flex lg:w-1/2 relative bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 items-center justify-center p-12 overflow-hidden">
-    <div class="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl"></div>
-    
-    <div class="relative z-10 text-right max-w-lg">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold text-sm mb-6 border border-purple-500/30">
-         سامانه هوشمند مدیریت و رزرو
-      </span>
-      <h1 class="text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
-        تجربه‌ای نوین در <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">رزرو سالن‌های</span> لوکس
-      </h1>
-      <p class="text-slate-300 text-base leading-relaxed">
-        با ثبت‌نام در سامانه، به راحتی زمان دلخواه خود را رزرو کنید، وضعیت نوبت‌ها را پیگیری نمایید و از خدمات ویژه‌ی ما بهره‌مند شوید.
-      </p>
-    </div>
-  </div>
+<div
+  dir="rtl"
+  class="min-h-screen relative overflow-hidden bg-[#020617] text-white flex items-center justify-center px-4 py-8 sm:px-6"
+>
+  <!-- Background Glow -->
+  <div
+    class="pointer-events-none absolute -top-40 -right-32 h-[420px] w-[420px] rounded-full bg-sky-500/20 blur-[120px]"
+  ></div>
 
-  <!-- بخش چپ: فرم ثبت‌نام مدرن و شیشه‌ای -->
-  <div class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 bg-slate-950">
-    <div class="w-full max-w-md bg-slate-900/80 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-slate-800">
-      
-      <!-- هدر فرم -->
-      <div class="text-center mb-8">
-        <h2 class="text-2xl font-black text-white">ایجاد حساب کاربری</h2>
-        <p class="text-sm text-slate-400 mt-2">اطلاعات خود را برای ثبت‌نام وارد کنید</p>
+  <div
+    class="pointer-events-none absolute -bottom-40 -left-32 h-[420px] w-[420px] rounded-full bg-blue-600/15 blur-[120px]"
+  ></div>
+
+  <div
+    class="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/5 blur-[100px]"
+  ></div>
+
+  <!-- Main -->
+  <main class="relative z-10 w-full max-w-[1050px]">
+
+    <!-- Brand -->
+    <div class="mb-6 flex items-center justify-center gap-3">
+      <div
+        class="flex h-11 w-11 items-center justify-center rounded-2xl border border-sky-300/20 bg-sky-400/10 shadow-lg shadow-sky-500/10"
+      >
+        <span class="text-xl">✦</span>
       </div>
 
-      <!-- فیلد نام و نام خانوادگی -->
-      <div class="mb-4">
-        <label class="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wider">نام و نام خانوادگی</label>
-        <input type="text" [(ngModel)]="name" placeholder="مثلاً علی رضایی" 
-          class="w-full px-4 py-3.5 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition">
-      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-wide text-white">
+          سامانه خدمات شهری
+        </h1>
 
-      <!-- فیلد شماره موبایل -->
-      <div class="mb-4">
-        <label class="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wider">شماره موبایل</label>
-        <input type="text" [(ngModel)]="phone" placeholder="09123456789" 
-          class="w-full px-4 py-3.5 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition">
-      </div>
-
-      <!-- فیلد ایمیل -->
-      <div class="mb-4">
-        <label class="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wider">ایمیل</label>
-        <input type="email" [(ngModel)]="email" placeholder="name@example.com" 
-          class="w-full px-4 py-3.5 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition">
-      </div>
-
-      <!-- فیلد رمز عبور -->
-      <div class="mb-6 relative">
-        <label class="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wider">رمز عبور</label>
-        <div class="relative">
-          <input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" placeholder="••••••••" 
-            class="w-full px-4 py-3.5 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition">
-          
-          <!-- دکمه آیکون چشم -->
-          <button type="button" (click)="togglePassword()" class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-purple-400 focus:outline-none">
-
-<svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-            <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a10.027 10.027 0 014.132-5.411m3.635-1.42A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.542 7a10.025 10.025 0 01-4.132 5.411m-3.635 1.42l-2.122-2.121M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- دکمه ثبت‌نام -->
-      <button (click)="onRegister()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3.5 rounded-xl hover:from-purple-500 hover:to-pink-500 shadow-lg shadow-purple-600/30 transition font-bold text-base tracking-wide">
-        تکمیل ثبت‌نام و عضویت
-      </button>
-
-      <!-- لینک ورود -->
-      <div class="mt-6 text-center">
-        <p class="text-sm text-slate-400">حساب کاربری دارید؟ 
-          <a routerLink="/login" class="text-purple-400 font-bold hover:underline">وارد شوید</a>
+        <p class="text-xs text-slate-400">
+          ایجاد حساب کاربری
         </p>
       </div>
-
-      <!-- پیام وضعیت -->
-      <div class="mt-4 text-center text-sm font-semibold" [ngClass]="isError ? 'text-red-400' : 'text-emerald-400'">
-        {{ message }}
-      </div>
-
     </div>
-  </div>
 
+    <!-- Glass Card -->
+    <section
+      class="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.055] shadow-[0_30px_100px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
+    >
+
+      <!-- Top Light -->
+      <div
+        class="absolute inset-x-24 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/60 to-transparent"
+      ></div>
+
+      <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
+
+        <!-- Decorative Side -->
+        <aside
+          class="relative hidden min-h-[700px] flex-col justify-between overflow-hidden border-l border-white/10 bg-gradient-to-b from-sky-500/[0.08] via-blue-500/[0.03] to-transparent p-10 lg:flex"
+        >
+
+          <!-- Decorative Circle -->
+          <div
+            class="absolute -left-24 top-20 h-72 w-72 rounded-full border border-sky-300/10"
+          ></div>
+
+          <div
+            class="absolute -left-12 top-32 h-48 w-48 rounded-full border border-sky-300/10"
+          ></div>
+
+          <div class="relative z-10">
+
+            <div
+              class="mb-7 flex h-16 w-16 items-center justify-center rounded-[22px] border border-sky-300/20 bg-sky-400/10 shadow-[0_0_40px_rgba(56,189,248,0.12)]"
+            >
+              <span class="text-3xl">♢</span>
+            </div>
+
+            <h2
+              class="max-w-xs text-3xl font-black leading-[1.4] text-white"
+            >
+              یک حساب،
+              <span class="text-sky-300">شروعی تازه</span>
+            </h2>
+
+            <p class="mt-5 max-w-sm text-sm leading-7 text-slate-400">
+              با ایجاد حساب کاربری، دسترسی سریع‌تر و ساده‌تری
+              به خدمات سامانه خواهید داشت.
+            </p>
+          </div>
+
+          <!-- Features -->
+          <div class="relative z-10 space-y-4">
+
+            <div
+              class="flex items-center gap-4 rounded-2xl border border-white/5 bg-black/20 p-4"
+            >
+              <div
+                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-400/10 text-sky-300"
+              >
+                ✓
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-white">
+                  ثبت‌نام سریع
+                </p>
+
+                <p class="mt-1 text-xs text-slate-500">
+                  فقط اطلاعات ضروری
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-4 rounded-2xl border border-white/5 bg-black/20 p-4"
+            >
+              <div
+                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-400/10 text-blue-300"
+              >
+                🔒
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-white">
+                  امنیت اطلاعات
+                </p>
+
+
+<p class="mt-1 text-xs text-slate-500">
+                  اطلاعات شما محفوظ می‌ماند
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- Form -->
+        <div class="p-6 sm:p-10 lg:p-12">
+
+          <!-- Header -->
+          <div class="mb-8">
+            <div
+              class="mb-4 inline-flex items-center rounded-full border border-sky-300/10 bg-sky-400/10 px-4 py-2 text-xs font-medium text-sky-300"
+            >
+              ایجاد حساب جدید
+            </div>
+
+            <h2 class="text-3xl font-black tracking-tight text-white">
+              خوش آمدید 👋
+            </h2>
+
+            <p class="mt-3 text-sm leading-6 text-slate-400">
+              برای استفاده از خدمات، اطلاعات خود را وارد کنید.
+            </p>
+          </div>
+
+          <!-- Form -->
+          <form
+            class="space-y-5"
+            (ngSubmit)="onRegister()"
+          >
+
+            <!-- First / Last Name -->
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+              <!-- First Name -->
+              <div>
+                <label
+                  class="mb-2 block text-sm font-medium text-slate-300"
+                >
+                  نام
+                </label>
+
+                <div class="relative">
+                  <input
+                    type="text"
+                    name="firstName"
+                    [(ngModel)]="firstName"
+                    placeholder="مثلاً علی"
+                    autocomplete="given-name"
+                    class="h-14 w-full rounded-2xl border border-white/10 bg-black/20 px-4 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-sky-400/50 focus:bg-sky-400/[0.04] focus:ring-4 focus:ring-sky-400/5"
+                  />
+                </div>
+              </div>
+
+              <!-- Last Name -->
+              <div>
+                <label
+                  class="mb-2 block text-sm font-medium text-slate-300"
+                >
+                  نام خانوادگی
+                </label>
+
+                <input
+                  type="text"
+                  name="lastName"
+                  [(ngModel)]="lastName"
+                  placeholder="مثلاً احمدی"
+                  autocomplete="family-name"
+                  class="h-14 w-full rounded-2xl border border-white/10 bg-black/20 px-4 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-sky-400/50 focus:bg-sky-400/[0.04] focus:ring-4 focus:ring-sky-400/5"
+                />
+              </div>
+
+            </div>
+
+            <!-- Mobile -->
+            <div>
+              <label
+                class="mb-2 block text-sm font-medium text-slate-300"
+              >
+                شماره موبایل
+              </label>
+
+              <div class="relative">
+                <span
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500"
+                >
+                  +98
+                </span>
+
+                <input
+                  type="tel"
+                  name="mobile"
+                  [(ngModel)]="mobile"
+                  placeholder="9121234567"
+                  autocomplete="tel"
+                  dir="ltr"
+                  class="h-14 w-full rounded-2xl border border-white/10 bg-black/20 pr-16 pl-4 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-sky-400/50 focus:bg-sky-400/[0.04] focus:ring-4 focus:ring-sky-400/5"
+                />
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label
+                class="mb-2 block text-sm font-medium text-slate-300"
+              >
+                ایمیل
+              </label>
+
+              <input
+                type="email"
+                name="email"
+
+[(ngModel)]="email"
+                placeholder="example@email.com"
+                autocomplete="email"
+                dir="ltr"
+                class="h-14 w-full rounded-2xl border border-white/10 bg-black/20 px-4 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-sky-400/50 focus:bg-sky-400/[0.04] focus:ring-4 focus:ring-sky-400/5"
+              />
+            </div>
+
+            <!-- Password -->
+            <div>
+              <label
+                class="mb-2 block text-sm font-medium text-slate-300"
+              >
+                رمز عبور
+              </label>
+
+              <div class="relative">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  name="password"
+                  [(ngModel)]="password"
+                  placeholder="حداقل ۸ کاراکتر"
+                  autocomplete="new-password"
+                  dir="ltr"
+                  class="h-14 w-full rounded-2xl border border-white/10 bg-black/20 px-4 pl-14 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-sky-400/50 focus:bg-sky-400/[0.04] focus:ring-4 focus:ring-sky-400/5"
+                />
+
+                <button
+                  type="button"
+                  (click)="togglePassword()"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 transition hover:text-sky-300"
+                >
+                  {{ showPassword ? '◉' : '○' }}
+                </button>
+              </div>
+
+              <!-- Password Strength -->
+              <div
+                *ngIf="password"
+                class="mt-3"
+              >
+                <div class="mb-2 flex gap-1.5">
+
+                  <div
+                    class="h-1.5 flex-1 rounded-full transition"
+                    [class.bg-sky-400]="passwordStrength >= 1"
+                    [class.bg-white/10]="passwordStrength < 1"
+                  ></div>
+
+                  <div
+                    class="h-1.5 flex-1 rounded-full transition"
+                    [class.bg-sky-400]="passwordStrength >= 2"
+                    [class.bg-white/10]="passwordStrength < 2"
+                  ></div>
+
+                  <div
+                    class="h-1.5 flex-1 rounded-full transition"
+                    [class.bg-blue-400]="passwordStrength >= 3"
+                    [class.bg-white/10]="passwordStrength < 3"
+                  ></div>
+
+                  <div
+                    class="h-1.5 flex-1 rounded-full transition"
+                    [class.bg-cyan-300]="passwordStrength >= 4"
+                    [class.bg-white/10]="passwordStrength < 4"
+                  ></div>
+
+                </div>
+
+                <p class="text-[11px] text-slate-500">
+                  {{ passwordStrengthText }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div>
+              <label
+                class="mb-2 block text-sm font-medium text-slate-300"
+              >
+                تکرار رمز عبور
+              </label>
+
+              <div class="relative">
+                <input
+                  [type]="showConfirmPassword ? 'text' : 'password'"
+                  name="confirmPassword"
+                  [(ngModel)]="confirmPassword"
+                  placeholder="رمز عبور را دوباره وارد کنید"
+                  autocomplete="new-password"
+                  dir="ltr"
+                  class="h-14 w-full rounded-2xl border border-white/10 bg-black/20 px-4 pl-14 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-sky-400/50 focus:bg-sky-400/[0.04] focus:ring-4 focus:ring-sky-400/5"
+                />
+
+                <button
+                  type="button"
+                  (click)="toggleConfirmPassword()"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 transition hover:text-sky-300"
+                >
+                  {{ showConfirmPassword ? '◉' : '○' }}
+                </button>
+              </div>
+
+
+<p
+                *ngIf="confirmPassword && password !== confirmPassword"
+                class="mt-2 text-xs text-red-400"
+              >
+                رمزهای عبور یکسان نیستند.
+              </p>
+            </div>
+
+            <!-- Message -->
+            <div
+              *ngIf="message"
+              class="rounded-2xl border px-4 py-3 text-sm"
+              [ngClass]="
+                messageType === 'success'
+                  ? 'border-emerald-400/20 bg-emerald-400/10 text-emerald-300'
+                  : 'border-red-400/20 bg-red-400/10 text-red-300'
+              "
+            >
+              {{ message }}
+            </div>
+
+            <!-- Register Button -->
+            <button
+              type="submit"
+              [disabled]="isLoading"
+              class="group relative h-14 w-full overflow-hidden rounded-2xl bg-gradient-to-l from-sky-400 via-blue-500 to-blue-600 font-bold text-white shadow-[0_12px_35px_rgba(37,99,235,0.25)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(56,189,248,0.25)] disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <span
+                class="absolute inset-0 -translate-x-full bg-white/10 transition duration-700 group-hover:translate-x-full"
+              ></span>
+
+              <span class="relative">
+                {{ isLoading ? 'در حال ایجاد حساب...' : 'ایجاد حساب کاربری' }}
+              </span>
+            </button>
+
+          </form>
+
+          <!-- Login Link -->
+          <div
+            class="mt-7 flex items-center justify-center gap-2 text-sm"
+          >
+            <span class="text-slate-500">
+              قبلاً حساب دارید؟
+            </span>
+
+            <a
+              routerLink="/login"
+              class="font-semibold text-sky-300 transition hover:text-sky-200"
+            >
+              ورود به حساب
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <p class="mt-5 text-center text-[11px] text-slate-600">
+      تمامی اطلاعات شما با امنیت بالا نگهداری می‌شود
+    </p>
+
+  </main>
 </div>

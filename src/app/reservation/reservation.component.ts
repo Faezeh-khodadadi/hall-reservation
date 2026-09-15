@@ -6,12 +6,19 @@ import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-reservation',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule
+  ],
+
   templateUrl: './reservation.component.html'
 })
 export class ReservationComponent {
-  salonId: any;
-  
+
+  salonId: string | null = null;
+
   formData = {
     name: '',
     lastName: '',
@@ -20,18 +27,32 @@ export class ReservationComponent {
     ceremonyName: '',
     ceremonyType: '',
     date: '',
-    guestsCount: '',
+    guestsCount: null as number | null,
     endTime: '',
-    timeGroup: ''
+    timeGroup: 'fullDay'
   };
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.salonId = this.route.snapshot.paramMap.get('id');
   }
 
-  submitReservation() {
-    console.log('Submitted Data:', this.formData, 'Salon ID:', this.salonId);
-    alert('رزرو شما با موفقیت ثبت شد!');
+
+  // بازگشت به داشبورد
+  backToDashboard() {
     this.router.navigate(['/dashboard']);
   }
+
+
+  // ثبت رزرو
+  submitReservation() {
+
+    console.log('اطلاعات رزرو:', this.formData);
+
+    alert('درخواست رزرو با موفقیت ثبت شد ✅');
+
+  }
+
 }
